@@ -14,6 +14,7 @@ def test_get_single_book():
     assert data["title"] == "The Hobbit"
     assert data["author"] == "J.R.R. Tolkien"
     
+    # testing for book that does not exist
     response = client.get("/books/99")
     assert response.status_code == 404
     assert response.json() == {"detail": "Book not found"}
