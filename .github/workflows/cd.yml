@@ -32,6 +32,5 @@ jobs:
           script: |
             cd /home/ubuntu/hng12-stage2-fastapi-book-project
             git pull origin main
-            source venv/bin/activate
-            pip install -r requirements.txt
-            sudo systemctl restart fastapi-book-project
+            sudo docker build -t fastapi-app .
+            sudo docker run -d --name fastapi-container -p 8000:8000 fastapi-app
